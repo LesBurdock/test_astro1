@@ -8,8 +8,10 @@ const branch =
   "main";
 
 export default defineConfig({
+  site: 'https://lesBurdock.github.io',
+  base: 'test-astro1',
   branch,
-
+ 
   // Get this from tina.io
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   // Get this from tina.io
@@ -26,6 +28,7 @@ export default defineConfig({
     },
     accept: ['image/jpeg/svg/png', '.pdf'],
   },
+ 
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
