@@ -1,0 +1,24 @@
+{
+  "name": "test-astro1",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "dev": "tinacms dev -c \"astro dev\"",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^3.1.9",
+    "@astrojs/rss": "^4.0.9",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^4.16.13",
+    "tinacms": "^2.4.0"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^1.6.11",
+    "@types/node": "^22.9.0"
+  }
+}
