@@ -23,10 +23,10 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "images",
-      publicFolder: "public",
+      mediaRoot: "src/assets/images",
+      publicFolder: "",
     },
-    accept: ['image/jpeg/svg/png', '.pdf'],
+    accept: ['image/jpeg', 'image/svg+xml', 'image/png', '.pdf'],
   },
  
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
@@ -54,6 +54,7 @@ export default defineConfig({
             type: "image",
             name: "littleImage",
             label: "littleImage",
+            required: false,
            }
         ],
       },
