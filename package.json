@@ -22,10 +22,10 @@
     "next-tinacms-cloudinary": "^10.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tinacms": "^2.4.0"
+    "tinacms": "^2.5.0"
   },
   "devDependencies": {
-    "@tinacms/cli": "^1.6.11",
+    "@tinacms/cli": "^1.6.12",
     "@types/node": "^22.9.0"
   }
 }
