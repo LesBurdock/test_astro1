@@ -12,13 +12,12 @@ process.env.HEAD ||
 export default defineConfig({
   //site: 'https://lesBurdock.github.io',
   //base: 'test-astro1',
-  branch,
  
   // Get this from tina.io
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   // Get this from tina.io
   token: process.env.TINA_TOKEN,
-
+  branch,
   build: {
     outputFolder: "admin",
     publicFolder: "public",
