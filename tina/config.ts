@@ -7,6 +7,8 @@ const branch =
   process.env.HEAD ||
   "main";
 
+  const isProduction = process.env.Node_ENV === 'production'
+
 export default defineConfig({
   site: 'https://lesBurdock.github.io',
   base: 'test-astro1',
@@ -21,13 +23,21 @@ export default defineConfig({
     outputFolder: "admin",
     publicFolder: "public",
   },
-  media: {
-    tina: {
-      mediaRoot: "src/assets/images",
-      publicFolder: "",
+  media: isProduction
+  ? {
+      loadCustomStore: async () => {
+        const pack = await import("next-tinacms-cloudinary");
+        return pack.TinaCloudCloudinaryMediaStore;
+      },
+    }
+  : {
+      tina: {
+        publicFolder: "",
+        mediaRoot: "src/assets/images",
+        static: false, // Default is false
+      },
     },
-    accept: ['image/jpeg', 'image/svg+xml', 'image/png', '.pdf'],
-  },
+
  
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {

@@ -21,10 +21,10 @@ console.log("Post Data:", post.data);
 
 <BlogPost {...post.data}>
 	<Content />
-	<Image
+	{post.data.littleImage && (<Image
     src={post.data.littleImage || '/default-image.jpg'}  
     alt={post.data.title + " image"} 
     width="150"
     height="150"
-  />
+  />)}
 </BlogPost>
