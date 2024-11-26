@@ -2,16 +2,16 @@ import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
-  "main";
+process.env.NEXT_PUBLIC_TINA_BRANCH ||
+process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
+process.env.HEAD ||
+ ''
 
   const isProduction = process.env.Node_ENV === 'production'
 
 export default defineConfig({
-  site: 'https://lesBurdock.github.io',
-  base: 'test-astro1',
+  //site: 'https://lesBurdock.github.io',
+  //base: 'test-astro1',
   branch,
  
   // Get this from tina.io
