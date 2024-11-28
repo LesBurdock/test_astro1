@@ -1,11 +1,11 @@
 // /scripts/replaceAssetPaths.js
 
 // all .md files in this directory and subdirectories will be processed
-const postsDirectory = "/src/content/posts/";
+const postsDirectory = "/src/content/blog/";
 
 // Find and replace strings
-const find = "/src/assets/";
-const replace = "~/assets/";
+const find = "/src/assets/images";
+const replace = "~/assets/images";
 // Special characters (https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended) need to be escaped
 
 import { exec } from "child_process";
