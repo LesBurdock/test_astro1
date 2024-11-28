@@ -15,7 +15,7 @@ const blogCollection = defineCollection({
     heroImage: z.string().optional(),
     littleImage: image().refine((img) => img.width >= 50, {
       message: "Image must be at least 50 pixels wide!",
-    }).optional(),  // Optional so it's not required
+    }).or(z.literal('')).optional(),  // Optional so it's not required
   }),
 });
 
