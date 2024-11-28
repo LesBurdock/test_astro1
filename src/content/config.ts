@@ -13,8 +13,8 @@ const blogCollection = defineCollection({
     
     // Image fields with validation for cover image width
     heroImage: z.string().optional(),
-    littleImage: image().refine((img) => img.width >= 1080, {
-      message: "Image must be at least 1080 pixels wide!",
+    littleImage: image().refine((img) => img.width >= 50, {
+      message: "Image must be at least 50 pixels wide!",
     }).optional(),  // Optional so it's not required
   }),
 });
