@@ -5,8 +5,10 @@ const postsDirectory = "/src/content/blog/";
 
 // Find and replace strings
 const find = "/src/assets/images";
-const replace = "~/assets/images";
+const replace = "../../assets/images/";
 // Special characters (https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended) need to be escaped
+
+replace = replace.replaceAll(".", "\\.");
 
 import { exec } from "child_process";
 // execute bash command
