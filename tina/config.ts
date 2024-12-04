@@ -23,20 +23,21 @@ export default defineConfig({
     outputFolder: "admin",
     publicFolder: "public",
   },
-  media: isProduction
-    ? {
+  media: 
+  // isProduction ? 
+  {
         loadCustomStore: async () => {
           const pack = await import("next-tinacms-cloudinary");
           return pack.TinaCloudCloudinaryMediaStore;
         },
-      }
-    : {
-        tina: {
-          publicFolder: "",
-          mediaRoot: "src/assets/images",
-          static: false, // Default is false
-        },
       },
+    // : {
+    //     tina: {
+    //       publicFolder: "",
+    //       mediaRoot: "src/assets/images",
+    //       static: false, // Default is false
+    //     },
+    //   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
