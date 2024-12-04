@@ -1,7 +1,7 @@
 import ServerlessHttp from 'serverless-http'
 import express, { Router } from 'express'
 import { isAuthorized } from '@tinacms/auth'
-import { createMediaHandler } from 'next-tinacms-<YOUR_MEDIA_STORE_NAME>/dist/handlers'
+import { createMediaHandler } from 'next-tinacms-cloudinary/dist/handlers'
 
 const app = express()
 
