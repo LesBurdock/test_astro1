@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 
 const blogCollection = defineCollection({
   type: 'content',
-  schema: ({ image }) => z.object({
+  schema: () => z.object({
     // Title and description
     title: z.string(),
     description: z.string(),
@@ -13,10 +13,9 @@ const blogCollection = defineCollection({
     
     // Image fields with validation for cover image width
     heroImage: z.string().optional(),
-    littleImage: image().refine((img) => img.width >= 50, {
-      message: "Image must be at least 50 pixels wide!",
-    }).or(z.literal('')).optional(),  // Optional so it's not required
+    littleImage:  z.string().optional(),   // Optional so the field can be omitted
   }),
 });
 
 export const collections = { blog: blogCollection };
+
