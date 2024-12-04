@@ -2,42 +2,41 @@ import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
-process.env.NEXT_PUBLIC_TINA_BRANCH ||
-process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
-process.env.HEAD ||
- ''
+  process.env.NEXT_PUBLIC_TINA_BRANCH ||
+  process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
+  process.env.HEAD ||
+  '';
 
-  const isProduction = process.env.Node_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production'; // Fixed case
 
 export default defineConfig({
-  //site: 'https://lesBurdock.github.io',
-  //base: 'test-astro1',
- 
+  // site: 'https://lesBurdock.github.io',
+  // base: 'test-astro1',
+
   // Get this from tina.io
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   // Get this from tina.io
   token: process.env.TINA_TOKEN,
+  // have hardcoded in the branch not ideal need to update
   branch: 'main',
   build: {
     outputFolder: "admin",
     publicFolder: "public",
   },
-  media: {
-  // isProduction
-  // ? {
-  //     loadCustomStore: async () => {
-  //       const pack = await import("next-tinacms-cloudinary");
-  //       return pack.TinaCloudCloudinaryMediaStore;
-  //     },
-  //   }
-  // : {
-      tina: {
-        publicFolder: "",
-        mediaRoot: "src/assets/images",
-        static: false, // Default is false
+  media: isProduction
+    ? {
+        loadCustomStore: async () => {
+          const pack = await import("next-tinacms-cloudinary");
+          return pack.TinaCloudCloudinaryMediaStore;
+        },
+      }
+    : {
+        tina: {
+          publicFolder: "",
+          mediaRoot: "src/assets/images",
+          static: false, // Default is false
+        },
       },
-  },
-
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
@@ -58,15 +57,16 @@ export default defineConfig({
             name: "body",
             label: "Body",
             isBody: true,
-          },  
+          },
           {
             type: "image",
             name: "littleImage",
             label: "littleImage",
             required: false,
-           }
+          },
         ],
       },
     ],
   },
 });
+
