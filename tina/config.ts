@@ -2,13 +2,17 @@ import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
+process.env.GITHUB_BRANCH ||
   process.env.NEXT_PUBLIC_TINA_BRANCH ||
   process.env.HEAD ||
-  '';
+  'main';
 
 const isProduction = process.env.NODE_ENV === 'production'; // Fixed case
 
+
+
 export default defineConfig({
+  
   // site: 'https://lesBurdock.github.io',
   // base: 'test-astro1',
 
@@ -16,7 +20,7 @@ export default defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   // Get this from tina.io
   token: process.env.TINA_TOKEN,
-  // have hardcoded in the branch not ideal need to update
+
   branch,
   build: {
     outputFolder: "admin",
