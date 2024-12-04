@@ -62,7 +62,7 @@ export default defineConfig({
           {
             type: "image",
             name: "littleImage",
-            label: "littleImage",
+            label: "little Image",
             required: false,
           },
         ],
