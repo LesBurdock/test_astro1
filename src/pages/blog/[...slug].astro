@@ -1,7 +1,8 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
-import { Image } from 'astro:assets';
+// import { Image } from 'astro:assets';
+
 
 
 export async function getStaticPaths() {
@@ -21,10 +22,12 @@ console.log("Post Data:", post.data);
 
 <BlogPost {...post.data}>
 	<Content />
-	{post.data.littleImage && (<Image
+---
+
+	<!-- {post.data.littleImage && (<Image
     src={post.data.littleImage || '/default-image.jpg'}  
     alt={post.data.title + " image"} 
     width="150"
     height="150"
-  />)}
+  />)} -->
 </BlogPost>
