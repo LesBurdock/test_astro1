@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 
+
 const blogCollection = defineCollection({
   type: 'content',
   schema: () => z.object({
@@ -13,7 +14,7 @@ const blogCollection = defineCollection({
     
     // Image fields with validation for cover image width
     heroImage: z.string().optional(),
-    littleImage:  z.string().optional(),   // Optional so the field can be omitted
+    littleImage:z.string().optional(), // Optional so the field can be omitted
   }),
 });
 
