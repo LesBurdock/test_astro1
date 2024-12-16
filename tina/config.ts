@@ -17,7 +17,7 @@ export default defineConfig({
   // base: 'test-astro1',
 
   // Get this from tina.io
-  clientId: process.env.TINA_CLIENT_ID,
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   // Get this from tina.io
   token: process.env.TINA_TOKEN,
 
