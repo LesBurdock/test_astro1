@@ -48,6 +48,7 @@ export default defineConfig({
         name: "blog",
         label: "Blog",
         path: "src/content/blog",
+        format: 'mdx',
         fields: [
           {
             type: "string",
@@ -61,11 +62,39 @@ export default defineConfig({
             name: "body",
             label: "Body",
             isBody: true,
-          },
+            templates: [
+              {
+                name: "ImageInsert",
+                label: "Image Insert into Text",
+                fields: [
+                  {
+                    name: "src",
+                    label: "src",
+                    type: "image",
+                  },
+                  {
+                    name: "alt",
+                    label: "alt",
+                    type: "string",
+                  },
+                  {
+                    name: "width",
+                    label: "width",
+                    type: "number",
+                  },
+                  {
+                    name: "height",
+                    label: "height",
+                    type: "number",
+                  },
+                ],
+              },
+            ],
+          }, 
           {
             type: "image",
             name: "littleImage",
-            label: "little Image",
+            label: "Little Image",
             required: false,
           },
         ],
@@ -73,4 +102,3 @@ export default defineConfig({
     ],
   },
 });
-
