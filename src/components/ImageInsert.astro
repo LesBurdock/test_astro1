@@ -1,0 +1,23 @@
+---
+// Destructure props from Astro.context (Astro.props)
+import { Image } from 'astro:assets';
+//import { CldImage } from 'astro-cloudinary'; // Cloudinary image component
+
+
+const { src, alt = 'Inserted Image', height, width } = Astro.props;
+---
+
+<!-- Render the image if src is provided -->
+<div>
+  {src ? (
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      inferSize
+    />
+  ) : (
+    <p>No image provided</p>
+  )}
+</div>
