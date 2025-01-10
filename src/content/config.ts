@@ -1,9 +1,8 @@
 import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
 
 const blogCollection = defineCollection({
   type: 'content',
-  schema: () => z.object({
+  schema: ({ image }) => z.object({
     // Title and description
     //loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/blog" }),
     title: z.string(),
@@ -15,7 +14,7 @@ const blogCollection = defineCollection({
     
     // Image fields with validation for cover image width
     heroImage: z.string().optional(),
-    littleImage:  z.string().optional(),   // Optional so the field can be omitted
+    littleImage: image().optional().or(z.string().optional()),   // Optional so the field can be omitted
   }),
 });
 

@@ -32,9 +32,9 @@ const components = {
   <Content components={components} />
 <!-- <TinaMarkdown content={post.body} components={components} /> -->
   <slot />
-  {post.data.littleImage && (
+  {post.data.littleImage && post.data.littleImage.trim() !== "" && (
     <Image
-      src={post.data.littleImage || '/default-image.jpg'}  
+      src={post.data.littleImage}  
       alt={post.data.title + " image"} 
       width="150"
       height="150"
