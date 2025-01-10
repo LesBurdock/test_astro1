@@ -6,6 +6,7 @@ import { Image } from 'astro:assets';
 import ImageInsert from '../../components/ImageInsert.astro';
 
 
+
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
@@ -19,17 +20,18 @@ const post = Astro.props;
 const { Content } = await post.render();
 
 // console.log("Post Data:", post.data);
-console.log("insert:", ImageInsert);
+
 
 const components = {
   ImageInsert: ImageInsert,  // Pass ImageInsert as a custom component
-};
+};  // Pass ImageInsert as a custom component
 
 ---
 
 <BlogPost {...post.data}>
-  <TinaMarkdown content={post.body} components={components} />
-  <Content />
+  <Content components={components} />
+<!-- <TinaMarkdown content={post.body} components={components} /> -->
+  <slot />
   {post.data.littleImage && (
     <Image
       src={post.data.littleImage || '/default-image.jpg'}  

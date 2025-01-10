@@ -83,7 +83,7 @@ export default defineConfig({
                     type: "number",
                   },
                   {
-                    name: "height",
+                    name: "heigth",
                     label: "height",
                     type: "number",
                   },
