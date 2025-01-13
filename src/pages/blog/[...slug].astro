@@ -2,8 +2,10 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import BlogPost from '../../layouts/BlogPost.astro';
-import { Image } from 'astro:assets';
+// import { Image } from 'astro:assets';
 import ImageInsert from '../../components/ImageInsert.astro';
+import { CldImage } from 'astro-cloudinary';
+
 
 
 
@@ -33,7 +35,7 @@ const components = {
 <!-- <TinaMarkdown content={post.body} components={components} /> -->
   <slot />
   {post.data.littleImage && post.data.littleImage.trim() !== "" && (
-    <Image
+    <CldImage
       src={post.data.littleImage}  
       alt={post.data.title + " image"} 
       width="150"
