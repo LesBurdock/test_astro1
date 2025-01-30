@@ -14,6 +14,7 @@ const blogCollection = defineCollection({
     
     // Image fields with validation for cover image width
     heroImage: z.string().optional(),
+    Image1: image().optional().or(z.string().optional()),
     littleImage: image().optional().or(z.string().optional()),   // Optional so the field can be omitted
   }),
 });

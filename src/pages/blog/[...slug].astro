@@ -4,6 +4,7 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import BlogPost from '../../layouts/BlogPost.astro';
 // import { Image } from 'astro:assets';
 import ImageInsert from '../../components/ImageInsert.astro';
+// import EmbedFrontmatter from '../../components/EmbedFrontmatter.astro';  // Import your custom Astro component
 import { CldImage } from 'astro-cloudinary';
 
 
@@ -21,20 +22,17 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content } = await post.render();
 
-// console.log("Post Data:", post.data);
-
+// Find the selected image field from the body content
 
 const components = {
-  ImageInsert: ImageInsert,  // Pass ImageInsert as a custom component
+  ImageInsert: ImageInsert, 
 };  // Pass ImageInsert as a custom component
 
 ---
 
 <BlogPost {...post.data}>
   <Content components={components} />
-<!-- <TinaMarkdown content={post.body} components={components} /> -->
-  <slot />
-  {post.data.littleImage && post.data.littleImage.trim() !== "" && (
+  <!-- {post.data.littleImage && post.data.littleImage.trim() !== "" && (
     <CldImage
       src={post.data.littleImage}  
       alt={post.data.title + " image"} 
@@ -42,4 +40,12 @@ const components = {
       height="150"
     />
   )}
+  {post.data.Image1 && post.data.Image1.trim() !== "" && (
+  <CldImage
+    src={post.data.Image1}  
+    alt={post.data.title + " image"} 
+    width="150"
+    height="150"
+  />
+)} -->
 </BlogPost>

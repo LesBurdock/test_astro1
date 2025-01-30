@@ -78,19 +78,35 @@ export default defineConfig({
                     type: "string",
                   },
                   {
-                    name: "width",
-                    label: "width",
-                    type: "number",
+                    name: "layout",
+                    label: "Select Layout Size",
+                    type: 'string',
+                    description: 'Select a layout for this post',
+                    options: ["large", "half", "tiny"], // Available layout options
+                    required: true,
                   },
+                ],
+              },
+              {
+                name: "EmbedFrontmatter",
+                label: "Embed Image",
+                fields: [
                   {
-                    name: "heigth",
-                    label: "height",
-                    type: "number",
+                    name: "imageField",
+                    label: "Select Image",
+                    type: "string",
+                    options: ["Image1", "littleImage"], // User can choose between image1 and 
                   },
                 ],
               },
             ],
           }, 
+          {
+            type: "image",
+            name: "Image1",
+            label: "Image1",
+            required: false,
+          },
           {
             type: "image",
             name: "littleImage",
