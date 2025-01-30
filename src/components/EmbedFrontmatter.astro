@@ -1,0 +1,21 @@
+---
+import { CldImage } from 'astro-cloudinary';
+
+const { src, alt = 'Inserted Image', height, width } = Astro.props;
+---
+
+<!-- Render the image if src is provided -->
+<div>
+  {src ? (
+    <CldImage
+      src={src}
+      sizes={"(max-width: 768px) 100vw,(max-width: 1200px) 50vw, 33vw"}
+      alt={alt}
+      width={width}
+      height={height}
+    />
+  ) : (
+    <p>No image provided</p>
+  )}
+</div>
+
