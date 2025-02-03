@@ -26,21 +26,20 @@ export default defineConfig({
     outputFolder: "admin",
     publicFolder: "public",
   },
-  media: 
+  media: {tina: {
+    publicFolder: "",
+    mediaRoot: "src/assets/images",
+    static: false, // Default is false
+  }, },
   // isProduction ? 
-  {
-        loadCustomStore: async () => {
-          const pack = await import("next-tinacms-cloudinary");
-          return pack.TinaCloudCloudinaryMediaStore;
-        },
-      },
+  // {
+  //       loadCustomStore: async () => {
+  //         const pack = await import("next-tinacms-cloudinary");
+  //         return pack.TinaCloudCloudinaryMediaStore;
+  //       },
+  //     },
     // : {
-    //     tina: {
-    //       publicFolder: "",
-    //       mediaRoot: "src/assets/images",
-    //       static: false, // Default is false
-    //     },
-    //   },
+
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
@@ -96,6 +95,20 @@ export default defineConfig({
                     label: "Select Image",
                     type: "string",
                     options: ["Image1", "littleImage"], // User can choose between image1 and 
+                  },
+                ],
+              }, {
+                name: "EmbedPdfLink",
+                label: "Embed PDF Link",
+                fields: [
+                  {
+                    name: "PDFLink",
+                    label: "Select PDF",
+                    type: "image",
+                  }, {
+                    name: "alt",
+                    label: "alt",
+                    type: "string",
                   },
                 ],
               },
