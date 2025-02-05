@@ -30,9 +30,7 @@ export default defineConfig({
     tina: {
       // Check environment to decide where to store media
       publicFolder: "",  // Leave this empty, or set to an empty string
-      mediaRoot: process.env.NODE_ENV === 'production' 
-        ? 'tina-cloud'  // Use Tina Cloud in production
-        : 'src/assets/images',  // Use local storage in development
+      mediaRoot: 'src/assets/images',  // Use local storage in development
       static: true,  // Mark files as static
     }, },
   schema: {

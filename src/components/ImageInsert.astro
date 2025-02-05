@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-
+const mode = import.meta.env.MODE; // Check the current environment
 const { src, alt = 'Inserted Image', layout='large' } = Astro.props;
 console.log("astro",Astro.props)
 
@@ -21,13 +21,19 @@ const layoutToDimensions = {
 
 // Get the width and height based on the layout
 const { width, height } = layoutToDimensions[layout] || layoutToDimensions['large']; // Default to 'large' if no layout is provided
+const cloudinaryCloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+const site = import.meta.env.VITE_SITE_NAME;
+// Determine if we're in production or development
+const imageSrc = mode === 'production'
+  ? `https://res.cloudinary.com/${cloudinaryCloudName}/image/fetch/c_limit,f_auto,q_32,w_${width}/${site}/${src}`
+  : src;
 ---
 
 <!-- Render the image if src is provided -->
 <div>
   {src ? (
     <Image
-      src={src}
+      src={imageSrc}
       sizes={"(max-width: 768px) 100vw,(max-width: 1200px) 50vw, 33vw"}
       alt={alt}
       width={width}
